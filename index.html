@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ab62a01839.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Memory Cards</title>
+</head>
+
+<body>
+    <button class="btn btn-clear" id="btn-clear"><i class="fas fa-trash"></i> Clear Cards</button>
+
+    <div class="container">
+        <h1>Memory Cards</h1>
+        <button class="btn btn-add" id="btn-add"><i class="fas fa-plus"></i> Add New Card</button>
+        <div class="card-container">
+            <button class="btn-flip" id="flip"><i class="fas fa-sync-alt"></i> Flip</button>
+            <div class="card-front" id="card-front">
+                <p id="card-question">What is PHP?</p>
+            </div>
+            <div class="card-back" id="card-back">
+                <p id="card-answer">Programming language</p>
+            </div>
+        </div>
+        <div class="navigation">
+            <button class="btn-prev" id="btn-prev"><i class="fas fa-arrow-left"></i></button>
+            <p id="current"></p>
+            <button class="btn=next" id="btn-next"><i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
