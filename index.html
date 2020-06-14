@@ -14,7 +14,7 @@
 
     <div class="container">
         <h1>Memory Cards</h1>
-        <button class="btn btn-add" id="btn-add"><i class="fas fa-plus"></i> Add New Card</button>
+        <button class="btn btn-add-card" id="btn-add"><i class="fas fa-plus"></i> Add New Card</button>
         <div class="card-container">
             <button class="btn-flip" id="flip"><i class="fas fa-sync-alt"></i> Flip</button>
             <div class="card-front" id="card-front">
@@ -28,6 +28,21 @@
             <button class="btn-prev" id="btn-prev"><i class="fas fa-arrow-left"></i></button>
             <p id="current"></p>
             <button class="btn=next" id="btn-next"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <div class="new-screen" id="new-screen">
+            <h2>Add New Card</h2>
+            <form class="new-form">
+                <div class="question-container">
+                    <label for="question">Question</label>
+                    <textarea type="text" id="question" placeholder="Enter question..."></textarea>
+                </div>
+                <div class="answer-container">
+                    <label for="answer">Answer</label>
+                    <textarea type="text" id="answer" placeholder="Enter answer..."></textarea>
+                </div>
+                <button class="btn btn-add" id="btn-add" type="submit"><i class="fas fa-plus"></i> Add Card</button>
+            </form>
         </div>
     </div>
 
