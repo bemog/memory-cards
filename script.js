@@ -56,7 +56,7 @@ const createCard = (data, index) => {
     `;
 
     // Flip to answer
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
         card.classList.toggle('show-answer');
     })
 
@@ -75,5 +75,29 @@ const createCards = () => {
     })
 }
 
-
 createCards();
+
+// Event listeners
+nextBtn.addEventListener('click', () => {
+    cardsElements[currentActiveCard].className = 'card';
+
+    currentActiveCard += 1;
+
+    if (currentActiveCard > cardsElements.length - 1) {
+        currentActiveCard = cardsElements.length - 1;
+    }
+    cardsElements[currentActiveCard].className = 'card active';
+    updateCurrentNumber();
+});
+
+prevBtn.addEventListener('click', () => {
+    cardsElements[currentActiveCard].className = 'card';
+
+    currentActiveCard -= 1;
+
+    if (currentActiveCard < 0) {
+        currentActiveCard = 0;
+    }
+    cardsElements[currentActiveCard].className = 'card active';
+    updateCurrentNumber();
+});

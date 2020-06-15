@@ -76,9 +76,11 @@ textarea:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .card.active {
+    z-index: 1;
     opacity: 1;
 }
 
