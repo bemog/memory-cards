@@ -9,6 +9,7 @@ const addCard = document.getElementById("btn-add");
 const closeBtn = document.getElementById("btn-close");
 const btnFlip = document.getElementById('btn-flip');
 const currentEl = document.getElementById('current');
+const addNewCardContainer = document.getElementById('new-screen');
 
 // Current card
 let currentActiveCard = 0;
@@ -21,7 +22,22 @@ const updateCurrentNumber = () => {
     currentEl.textContent = `${currentActiveCard + 1} / ${cardsElements.length}`;
 }
 
+// Get cards data from local storage
+const getCardsData = () => {
+    const cards = JSON.parse(localStorage.getItem('cards'));
+    return cards === null ? [] : cards;
+}
+
+// Add cards data to local storage
+const setCardsData = () => {
+    localStorage.setItem('cards', JSON.stringify(cardsData));
+    window.location.reload();
+}
+
 // Cards Data
+const cardsData = getCardsData();
+
+/*
 const cardsData = [{
         question: 'What is PHP?',
         answer: 'Programming language'
@@ -35,6 +51,7 @@ const cardsData = [{
         answer: 'Cascading Style Sheets'
     },
 ];
+*/
 
 // Create single card
 const createCard = (data, index) => {
@@ -101,3 +118,42 @@ prevBtn.addEventListener('click', () => {
     cardsElements[currentActiveCard].className = 'card active';
     updateCurrentNumber();
 });
+
+addNewCardBtn.addEventListener('click', () => {
+    addNewCardContainer.classList.add('show');
+})
+
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    addNewCardContainer.classList.remove('show');
+})
+
+addCard.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const question = questionEl.value;
+    const answer = answerEl.value;
+
+    if (question && answer) {
+        const newCard = {
+            question,
+            answer
+        };
+        createCards(newCard);
+
+        // Clear inputs
+        questionEl.value = "";
+        answerEl.value = "";
+        // Hide new card container
+        addNewCardContainer.classList.remove('show');
+
+        cardsData.push(newCard);
+        setCardsData(cardsData);
+    }
+})
+
+clearBtn.addEventListener('click', () => {
+    localStorage.clear();
+    cardsContainer.innerHTML = '';
+    window.location.reload();
+})

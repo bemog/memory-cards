@@ -132,6 +132,10 @@ textarea:focus {
     display: none;
 }
 
+.new-screen.show {
+    display: flex;
+}
+
 .new-form {
     height: 400px;
     width: 500px;
