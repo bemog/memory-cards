@@ -64,11 +64,7 @@ textarea:focus {
     top: 10px;
     right: 10px;
     border: none;
-    opacity: 0;
-}
-
-.btn-flip.active {
-    opacity: 1;
+    color: #aaa;
 }
 
 .card {
@@ -90,8 +86,23 @@ textarea:focus {
     display: none;
 }
 
-.show {
-    display: block;
+.card-front::after,
+.card-back::after {
+    content: '\f2f1  Flip';
+    font-family: 'FontAwesome', 'Roboto Condensed', sans-serif;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: .7em;
+    color: rgba(0, 0, 0, .5);
+}
+
+.card.show-answer .card-front {
+    display: none;
+}
+
+.card.show-answer .card-back {
+    display: flex;
 }
 
 .navigation {
