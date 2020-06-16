@@ -7,7 +7,6 @@ const questionEl = document.getElementById("question");
 const answerEl = document.getElementById("answer");
 const addCard = document.getElementById("btn-add");
 const closeBtn = document.getElementById("btn-close");
-const btnFlip = document.getElementById('btn-flip');
 const currentEl = document.getElementById('current');
 const addNewCardContainer = document.getElementById('new-screen');
 
@@ -64,7 +63,7 @@ const createCard = (data, index) => {
     }
 
     card.innerHTML = `
-    <div class="card-front show" id="card-front">
+    <div class="card-front" id="card-front">
         <p>${data.question}</p>
     </div>
     <div class="card-back" id="card-back">
